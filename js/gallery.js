@@ -77,7 +77,7 @@ const images = [
             <li class=" gallery-item">
             <a class="gallery-link" href="${img.original}">
             <img class="gallery-image" src="${img.preview}" 
-            data-source="${img.original}
+            data-source="${img.original}"
             alt="${img.description}" 
             />
             </a>
@@ -88,9 +88,11 @@ const images = [
 
     function handleClick(event) {
 
-        if(event.currentTarget === event.target) {
+        if(event.target.nodeName !== 'IMG') {
             return;
         }
+      event.preventDefault();
+        
 
 
       const largeImg = event.target.dataset.source;
